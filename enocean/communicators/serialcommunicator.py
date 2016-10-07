@@ -10,7 +10,10 @@ class SerialCommunicator(Communicator):
     ''' Serial port communicator class for EnOcean radio '''
     logger = logging.getLogger('enocean.communicators.SerialCommunicator')
 
-    def __init__(self, port='/dev/ttyAMA0', callback=None):
+    def __init__(self, port, callback=None):
+
+        if port == '':
+            port = '/dev/ttyAMA0'
         super(SerialCommunicator, self).__init__(callback)
         # Initialize serial port
         self.__ser = serial.Serial(port, 57600, timeout=0.1)

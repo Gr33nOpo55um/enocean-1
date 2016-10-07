@@ -23,7 +23,7 @@ def assemble_radio_packet(transmitter_id):
 
 
 init_logging()
-communicator = SerialCommunicator()
+communicator = SerialCommunicator('/dev/ttyUSB0')
 communicator.start()
 print('The Base ID of your module is %s.' % enocean.utils.to_hex_string(communicator.base_id))
 
